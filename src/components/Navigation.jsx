@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-grid-system";
 import { getData } from "../Api/getData";
 // logo
-import logo from "../assets/images/bellotero@3x.png";
+import logo from "../assets/images/bellotero.png";
 import LinkComponent from "./LinkComponent";
 
 function Navigation() {
@@ -12,22 +12,22 @@ function Navigation() {
       setLinks(res.data.menu.items);
     });
   }, []);
-  console.log(links);
+
   return (
-    <nav>
-      <Container>
+    <Container>
+      <nav className="nav">
         <div className="logo">
-          <img src={logo} />
+          <img src={logo} alt="logo" />
         </div>
-        <div className="navigation">
+        <ul className="nav__menu">
           {links.map((link, i) => {
             return (
               <LinkComponent key={i} text={link.text} route={link.route} />
             );
           })}
-        </div>
-      </Container>
-    </nav>
+        </ul>
+      </nav>
+    </Container>
   );
 }
 

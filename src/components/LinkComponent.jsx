@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 
 function LinkComponent({ text, route }) {
   return (
-    <NavLink className="navigation__link" to={`/${route}`}>
-      {text}
-    </NavLink>
+    <li className="nav__menu__link">
+      <NavLink to={`/${route}`}>{text}</NavLink>
+    </li>
   );
 }
 

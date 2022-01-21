@@ -1,0 +1,16 @@
+@use "./utils" as *;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.main {
+  background-color: $iceBlue;
+  flex-grow: 1;
+}

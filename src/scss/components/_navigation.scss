@@ -1,0 +1,41 @@
+@use "../utils" as *;
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    width: 12%;
+    margin: 0;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__menu {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+
+    &__link {
+      a {
+        border-top: 2px solid transparent;
+        display: block;
+        padding: 24px 0;
+        text-decoration: none;
+        color: $cobaltBlue;
+        transition: border 0.3s linear;
+        font-family: "Roboto";
+        font-size: 14px;
+        font-weight: 500;
+
+        &.active {
+          border-top: 2px solid $cobaltBlue;
+        }
+      }
+    }
+  }
+}

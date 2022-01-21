@@ -5,7 +5,7 @@ import logo from "../assets/images/bellotero@3x.png";
 
 function Header() {
   return (
-    <header>
+    <header className="header">
       <Navigation />
     </header>
   );
