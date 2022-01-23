@@ -1,39 +1,50 @@
 @use "../utils" as *;
 
 .nav {
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 
-  .logo {
-    width: 12%;
-    margin: 0;
-
-    img {
-      width: 100%;
-    }
+  a {
+    text-decoration: none;
+    color: $cobaltBlue;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 45px;
   }
+}
 
-  &__menu {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-    width: 40%;
+@media screen and (min-width: 991px) {
+  .navbar {
+    padding: 0px;
+    .nav {
+      display: flex;
+      width: 100%;
 
-    &__link {
-      a {
-        border-top: 2px solid transparent;
-        display: block;
-        padding: 24px 0;
-        text-decoration: none;
-        color: $cobaltBlue;
-        transition: border 0.3s linear;
-        font-family: "Roboto";
-        font-size: 14px;
-        font-weight: 500;
+      align-items: center;
+      .logo {
+        width: 12%;
+        margin: 0;
 
-        &.active {
-          border-top: 2px solid $cobaltBlue;
+        img {
+          width: 100%;
+        }
+      }
+      .navigation {
+        width: 100%;
+        justify-content: end;
+
+        a {
+          border-top: 2px solid transparent;
+          display: block;
+          padding: 24px 0;
+          transition: border 0.3s linear;
+          margin-left: 40px;
+
+          &.active {
+            border-top: 2px solid $cobaltBlue;
+          }
         }
       }
     }

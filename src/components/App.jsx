@@ -1,17 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Provider } from "react-redux";
 import store from "../redux/store";
 import { Navigate, Route, Routes } from "react-router-dom";
-import ConfiguratorPage from "../pages/ConfiguratorPage";
-import TestimonialPage from "../pages/TestimonialPage";
+import { linksApi } from "../Api/links/linksApi";
+import { ToastContainer } from "react-toastify";
+// components
 import Header from "./Header";
+import Navigation from "./Navigation";
+// pages
+import TestimonialPage from "../pages/TestimonialPage";
+import ConfiguratorPage from "../pages/ConfiguratorPage";
 // styles
+import "react-toastify/dist/ReactToastify.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../scss/index.scss";
+import { toastComponent } from "./Toast";
 
 function App() {
+  const [links, setLinks] = useState([]);
+
+  /* Since I will have same navigation links on all pages ,I decided to get them directly  */
+  useEffect(() => {
+    async function getLinks() {
+      try {
+        const links = await linksApi.getLinks();
+        setLinks(links.menu.items);
+      } catch (error) {
+        toastComponent(error.message);
+      }
+    }
+    getLinks();
+  }, []);
+
   return (
     <div className="app">
-      <Header />
+      <Header>
+        <ToastContainer />
+        <Navigation links={links} />
+      </Header>
       <div className="main">
         <Provider store={store}>
           <Routes>

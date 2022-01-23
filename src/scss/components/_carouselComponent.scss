@@ -1,0 +1,122 @@
+@use "../utils" as *;
+
+.carouselWrapper {
+  position: relative;
+  width: 78%;
+}
+.carouselSlide {
+  background-color: white;
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+
+  .carouselInfo {
+    display: flex;
+    flex-direction: column;
+    color: $myBlack;
+
+    &__name {
+      font-family: "Roboto", sans-serif;
+      font-weight: bold;
+      font-size: 32px;
+    }
+
+    &__comment {
+      width: 60%;
+      font-family: "Roboto", sans-serif;
+      font-weight: bold;
+      font-size: 24px;
+    }
+    &__position {
+      color: $greyish;
+      font-family: "Roboto", sans-serif;
+      font-size: 14px;
+    }
+  }
+}
+
+.carouselControl {
+  width: 27.6%;
+  display: flex;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(30%, 50%);
+
+  &__counter {
+    font-size: 32px;
+    font-family: "Cormorant Garamond", sans-serif;
+    display: inline-block;
+    text-align: center;
+    margin: 0 1px 0 0;
+    width: 51%;
+    background-color: $cobaltBlue;
+    flex-grow: 1;
+  }
+  .carousel__buttons {
+    background-color: $cobaltBlue;
+  }
+  &__button {
+    color: white;
+    background-color: $cobaltBlue;
+    border: none;
+    height: 56px;
+    width: 56px;
+
+    svg {
+      font-size: 16px;
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .carouselWrapper {
+    width: 88%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .carouselWrapper {
+    position: relative;
+    width: 88%;
+  }
+  .carouselSlide {
+    .carouselInfo {
+      &__comment {
+        font-size: 16px;
+      }
+    }
+  }
+  .carouselControl {
+    width: 37.6%;
+    transform: translate(25%, 50%);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page__heading {
+    font-size: 25px;
+  }
+  .carouselControl {
+    width: 55%;
+    transform: translate(5%, 50%);
+
+    &__counter {
+      font-size: 30px;
+    }
+  }
+  .carouselSlide {
+    .carouselInfo {
+      &__name {
+        font-size: 20px;
+      }
+
+      &__comment {
+        font-size: 12px;
+      }
+      &__position {
+        font-size: 12px;
+      }
+    }
+  }
+}

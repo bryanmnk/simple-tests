@@ -1,0 +1,139 @@
+@use "../utils" as *;
+
+.configuratorPage {
+  height: 100%;
+  &__row {
+    padding-top: 10%;
+  }
+
+  h2 {
+    width: 55%;
+  }
+
+  span {
+    display: block;
+    margin: 4px 0;
+  }
+  p {
+    font-family: "Roboto", sans-serif;
+    margin-top: 28px;
+    width: 67%;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: $myBlack;
+  }
+}
+
+.horizontal__slider {
+  width: 100%;
+}
+.slider__thumb {
+  cursor: pointer;
+  position: absolute;
+  z-index: 100;
+  background: #ffffff;
+  border: 5px solid $cobaltBlue;
+  border-radius: 100%;
+  display: block;
+  box-shadow: 0 0 2px 0 rgb(0 0 0 / 44%);
+}
+
+.input__wrapper {
+  min-height: 52px;
+}
+.slider__track {
+  position: relative;
+  background: #ddd;
+}
+.slider__track.slider__track-0 {
+  background: $cobaltBlue;
+}
+.horizontal__slider .slider__track {
+  top: 20px;
+  height: 4px;
+}
+.horizontal__slider .slider__thumb {
+  top: 14px;
+  width: 16px;
+  outline: none;
+  height: 16px;
+  line-height: 38px;
+}
+.input__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 52px;
+}
+
+.slider__label {
+  font-family: "Robot", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+.monthlyIngRSpeending {
+  .displayPrice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 36.5%;
+    background-color: white;
+    padding: 0 12px;
+    border-radius: 4px;
+    border: 1px solid $paleLilac;
+
+    &__price {
+      font-size: 40px;
+      color: $myBlack;
+      font-weight: 500;
+    }
+    svg {
+      font-size: 20px;
+      color: $paleLilac;
+    }
+  }
+}
+.displayTotal {
+  display: flex;
+  justify-content: space-between;
+
+  .displayTotal__label {
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    margin: 4px;
+    text-align: right;
+  }
+
+  &__price {
+    display: flex;
+    align-items: baseline;
+  }
+
+  &__digits {
+    font-family: Roboto;
+    font-size: 72px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: 1px;
+    text-align: right;
+    color: $cobaltBlue;
+  }
+  svg {
+    color: $cobaltBlue;
+    font-size: 36px;
+    font-weight: 500;
+  }
+}

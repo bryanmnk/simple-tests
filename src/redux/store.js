@@ -1,7 +1,11 @@
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import rootReducer from "./rootReducer";
+import { configureStore } from "@reduxjs/toolkit";
+import { configuratorSlice } from "./Configurator/configuratorSlice";
+import { testimonialSlice } from "./Testimonial/testimonialSlice";
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
-
+const store = configureStore({
+  reducer: {
+    configurator: configuratorSlice.reducer,
+    testimonial: testimonialSlice.reducer,
+  },
+});
 export default store;
