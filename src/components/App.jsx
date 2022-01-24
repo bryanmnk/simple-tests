@@ -19,7 +19,8 @@ import { toastComponent } from "./Toast";
 function App() {
   const [links, setLinks] = useState([]);
 
-  /* Since I will have same navigation links on all pages ,I decided to get them directly  */
+  /* Since I will have same navigation links on all pages ,I decided to get them directly  
+  also I have used page-1 as home page since in my task there was no homepage design*/
   useEffect(() => {
     async function getLinks() {
       try {
