@@ -12,7 +12,7 @@ function Header({ children }) {
             <NavbarBrand className="logo">
               <img src={logo} alt="logo" />
             </NavbarBrand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Toggle aria-controls="basic-navbar-nav" id="toggler" />
             <Navbar.Collapse id="basic-navbar-nav">{children}</Navbar.Collapse>
           </nav>
         </Container>
