@@ -1,7 +1,16 @@
 import React from "react";
 import ReactSlider from "react-slider";
 
-function Input({ id, value, min, max, step, changeHandler, style }) {
+function Input({
+  id,
+  value,
+  min,
+  max,
+  step,
+  changeHandler,
+  style,
+  afterChange,
+}) {
   return (
     <div className="input__wrapper">
       <ReactSlider
@@ -14,6 +23,7 @@ function Input({ id, value, min, max, step, changeHandler, style }) {
         onChange={changeHandler}
         value={value}
         step={step}
+        onAfterChange={afterChange}
       />
     </div>
   );

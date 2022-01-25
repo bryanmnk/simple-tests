@@ -4,6 +4,8 @@ import { configuratorApi } from "../../Api/configurator/configuratorApi";
 const initialState = {
   configurator: {},
   error: "",
+  foodCostSaving: 0,
+  annualSaving: 0,
 };
 
 export const configuratorSlice = createSlice({
@@ -16,10 +18,17 @@ export const configuratorSlice = createSlice({
     setError: (state, { payload }) => {
       state.error = payload;
     },
+    setFoodCost: (state, { payload }) => {
+      state.foodCostSaving = payload;
+    },
+    setAnnualSaving: (state, { payload }) => {
+      state.annualSaving = payload;
+    },
   },
 });
 
-export const { setConfigurator, setError } = configuratorSlice.actions;
+export const { setConfigurator, setError, setFoodCost, setAnnualSaving } =
+  configuratorSlice.actions;
 
 export const getConfigurator = () => async (dispatch) => {
   try {

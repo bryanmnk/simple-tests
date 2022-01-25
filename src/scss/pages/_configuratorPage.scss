@@ -75,6 +75,13 @@
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
+
+  &.label-1::first-line {
+    word-spacing: 3000px;
+  }
+  &.label-2 {
+    width: 33%;
+  }
 }
 .monthlyIngRSpeending {
   .displayPrice {

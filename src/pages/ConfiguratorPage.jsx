@@ -3,7 +3,11 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import Input from "../components/Input";
-import { getConfigurator } from "../redux/Configurator/configuratorSlice";
+import {
+  getConfigurator,
+  setAnnualSaving,
+  setFoodCost,
+} from "../redux/Configurator/configuratorSlice";
 import { FaDollarSign } from "react-icons/fa";
 import Loader from "../components/Loader";
 import { toastComponent } from "../components/Toast";
@@ -16,6 +20,10 @@ function ConfiguratorPage() {
     (state) => state.configurator.configurator.calculator
   );
   const error = useSelector((state) => state.configurator.error);
+  const annualSaving = useSelector((state) => state.configurator.annualSaving);
+  const foodCostSavings = useSelector(
+    (state) => state.configurator.foodCostSaving
+  );
 
   useEffect(() => {
     dispatch(getConfigurator());
@@ -23,8 +31,8 @@ function ConfiguratorPage() {
   if (error) {
     toastComponent(error);
   }
-  /* Here I used local state for this slider values, and I just connected them with display areas because I was not sure 
-  if that is possible to calculate . */
+  /* Here I used local state for this slider values, and I just connected them with display areas 
+  redux state is being updated on slider stop to prevent to many upadtes in shorttime */
   return (
     <>
       {calculator ? (
@@ -43,9 +51,10 @@ function ConfiguratorPage() {
             </Col>
             <Col lg={6}>
               <div className="monthlyIngRSpeending">
+                {/* slider 1 */}
                 <div className="input__row">
-                  <label className="slider__label">
-                    Monthly <br></br> ingredient spending
+                  <label className="slider__label label-1">
+                    Monthly ingredient spending
                   </label>
                   <div className="displayPrice">
                     <FaDollarSign className="displayPrice__dollarSign" />
@@ -62,11 +71,13 @@ function ConfiguratorPage() {
                   step={1}
                   changeHandler={(value) => setIngrSpending(value)}
                   value={ingrSpending}
+                  afterChange={(value) => dispatch(setAnnualSaving(value))}
                 />
-
+                {/* end of slider 1 */}
+                {/* slider 2 */}
                 <div className="input__row">
-                  <label className="slider__label">
-                    Monthly <br></br> ingredient spending
+                  <label className="slider__label label-2">
+                    Full-time employees that process invoices
                   </label>
                   <div className="displayPrice">
                     <FaDollarSign className="displayPrice__dollarSign" />
@@ -75,6 +86,7 @@ function ConfiguratorPage() {
                     </div>
                   </div>
                 </div>
+
                 <Input
                   style="horizontal__slider employees"
                   min={0}
@@ -83,6 +95,7 @@ function ConfiguratorPage() {
                   step={0.001}
                   changeHandler={(value) => setEmployees(value)}
                   value={employees}
+                  afterChange={(value) => dispatch(setFoodCost(value))}
                 />
               </div>
 
@@ -91,7 +104,7 @@ function ConfiguratorPage() {
                   <div className="displayTotal__price">
                     <FaDollarSign className="" />
                     <span className="displayTotal__digits">
-                      {employees.toLocaleString()}
+                      {foodCostSavings.toLocaleString()}
                     </span>
                   </div>
                   <p className="displayTotal__label">
@@ -102,7 +115,7 @@ function ConfiguratorPage() {
                   <div className="displayTotal__price">
                     <FaDollarSign className="" />
                     <span className="displayTotal__digits">
-                      {ingrSpending.toLocaleString("de-De")}
+                      {annualSaving.toLocaleString("de-De")}
                     </span>
                   </div>
                   <p className="displayTotal__label">
