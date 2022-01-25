@@ -79,8 +79,7 @@ function ConfiguratorPage() {
                   <label className="slider__label label-2">
                     Full-time employees that process invoices
                   </label>
-                  <div className="displayPrice">
-                    <FaDollarSign className="displayPrice__dollarSign" />
+                  <div className="displayPrice input-2">
                     <div className="displayPrice__price">
                       {parseInt(employees)}
                     </div>
