@@ -3,8 +3,6 @@ import { fireEvent, render } from "@testing-library/react";
 
 import CarouselComponent from "../CarouselComponent";
 
-// If you dont configure jest-setup.js with import '@testing-library/jest-dom' you can not use toBeInTheDocument
-
 const reviewMocks = [
   {
     name: "Liru",
@@ -52,14 +50,12 @@ describe("CarouselComponent Component", () => {
   });
 });
 
-// Note getByTestId vs queryByTestId
-// https://testing-library.com/docs/queries/about/#types-of-queries
-
 // describe("CarouselComponent Component", () => {
 //   it("should not render component", () => {
 //     const screen = render(<CarouselComponent reviews={[]} />);
 
 //     const liru = screen.queryByText("Liru");
+//     const liru2 = screen.getByText("Liru");
 
 //     expect(liru).not.toBeInTheDocument();
 //   });
@@ -68,7 +64,9 @@ describe("CarouselComponent Component", () => {
 //     const screen = render(<CarouselComponent reviews={[]} />);
 
 //     const bryan = screen.queryByTestId("Bryan");
+//     const bryan2 = screen.getByTestId("Bryan");
 //     const position = screen.queryByTestId("Senior Dev");
+//     const position2 = screen.getByTestId("Senior Dev");
 
 //     expect(bryan).toBe(null);
 //     expect(position).not.toBeInTheDocument();
@@ -125,6 +123,11 @@ describe("CarouselComponent Component", () => {
 //     expect(counter.textContent).toBe("1/2");
 //   });
 // });
+
+// ===================================
+
+// 1) If you dont configure jest-setup.js with import '@testing-library/jest-dom' you can not use toBeInTheDocument
+// 2) Note getByTestId vs queryByTestId - https://testing-library.com/docs/queries/about/#types-of-queries
 
 // ===================================
 
