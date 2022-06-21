@@ -3,6 +3,8 @@ import { fireEvent, render } from "@testing-library/react";
 
 import CarouselComponent from "../CarouselComponent";
 
+// If you dont configure jest-setup.js with import '@testing-library/jest-dom' you can not use toBeInTheDocument
+
 const reviewMocks = [
   {
     name: "Liru",
