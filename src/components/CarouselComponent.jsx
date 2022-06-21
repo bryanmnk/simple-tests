@@ -25,8 +25,16 @@ function CarouselComponent({ reviews }) {
                 <Carousel.Item key={i}>
                   <div className="carouselSlide">
                     <div className="carouselInfo">
-                      <span className="carouselInfo__name">{review.name}</span>
-                      <q className="carouselInfo__position">
+                      <span
+                        className="carouselInfo__name"
+                        data-testid={review.name}
+                      >
+                        {review.name}
+                      </span>
+                      <q
+                        className="carouselInfo__position"
+                        data-testid={review.position}
+                      >
                         {review.position}
                       </q>
                     </div>
@@ -40,14 +48,22 @@ function CarouselComponent({ reviews }) {
             })}
           </Carousel>
           <div className="carouselControl">
-            <p className="carouselControl__counter">
+            <p className="carouselControl__counter" data-testid="counter">
               {index + 1}/{reviews ? reviews.length : ""}
             </p>
             <div className="carousel__buttons">
-              <button className="carouselControl__button" onClick={prevSlide}>
+              <button
+                className="carouselControl__button"
+                onClick={prevSlide}
+                data-testid="prev"
+              >
                 <HiOutlineArrowLeft className="button__icon" />
               </button>
-              <button className="carouselControl__button" onClick={nextSlide}>
+              <button
+                className="carouselControl__button"
+                onClick={nextSlide}
+                data-testid="next"
+              >
                 <HiOutlineArrowRight className="button__icon" />
               </button>
             </div>
