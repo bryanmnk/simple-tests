@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getTestimonial } from "../redux/Testimonial/testimonialSlice";
-// componentes
-import CarouselComponent from "../components/CarouselComponent";
+
 import Loader from "../components/Loader";
 import { toastComponent } from "../components/Toast";
+import CarouselComponent from "../components/CarouselComponent";
 
 function TestimonialPage() {
   const dispacth = useDispatch();
