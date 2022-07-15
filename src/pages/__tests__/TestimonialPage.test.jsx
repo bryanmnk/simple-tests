@@ -49,6 +49,10 @@ describe("Testimonial Page", () => {
     jest.restoreAllMocks();
   });
 
+  beforeEach(() => {
+    // render(<TestimonialPage />);
+  });
+
   it("should render TestimonialPage page", () => {
     const dispatch = jest.fn();
     useSelector.mockImplementation((callback) => {
@@ -58,7 +62,6 @@ describe("Testimonial Page", () => {
     useDispatch.mockReturnValue(dispatch);
 
     const { container } = render(<TestimonialPage />);
-
     const testimonial = container.getElementsByClassName("testimonalPage");
 
     expect(testimonial.length).toBe(0);
@@ -78,8 +81,6 @@ describe("Testimonial Page", () => {
   });
 
   it("should render TestimonialPage page with error", () => {
-    const spy = jest.fn();
-
     useSelector.mockImplementation((callback) => {
       return callback(mockAppStateWithError);
     });
